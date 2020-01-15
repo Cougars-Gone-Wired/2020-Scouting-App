@@ -1,0 +1,249 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/frameLayout3"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorPrimaryDark"
+    tools:context="TeleopTab">
+
+    <!-- TODO: Update blank fragment layout -->
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="342dp"
+        android:layout_height="585dp"
+        android:src="@drawable/power_port"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.2" />
+
+    <TextView
+        android:id="@+id/teleScore2TextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal|center_vertical"
+        android:text="Outer"
+        android:textAppearance="@style/TextAppearance.AppCompat.Display2"
+        android:textColor="@color/colorPrimary"
+        android:textStyle="bold"
+        app:fontFamily="@font/bitter"
+        app:layout_constraintBottom_toTopOf="@+id/teleOuterGoalPlusButton"
+        app:layout_constraintEnd_toEndOf="@+id/teleOuterGoalPlusButton"
+        app:layout_constraintStart_toStartOf="@+id/teleOuterGoalPlusButton"
+        app:layout_constraintTop_toBottomOf="@+id/teleInnerGoalPlusButton" />
+
+    <TextView
+        android:id="@+id/teleInnerGoalScoreTextView"
+        android:layout_width="75dp"
+        android:layout_height="100dp"
+        android:gravity="center_horizontal|center_vertical"
+        android:text="0"
+        android:textAppearance="@style/TextAppearance.AppCompat.Display3"
+        android:textColor="@color/colorAccent"
+        android:textStyle="bold"
+        app:fontFamily="@font/bitter"
+        app:layout_constraintBottom_toBottomOf="@+id/imageView"
+        app:layout_constraintEnd_toEndOf="@+id/imageView"
+        app:layout_constraintHorizontal_bias="0.501"
+        app:layout_constraintStart_toStartOf="@+id/imageView"
+        app:layout_constraintTop_toTopOf="@+id/imageView"
+        app:layout_constraintVertical_bias="0.125" />
+
+    <Button
+        android:id="@+id/teleInnerGoalPlusButton"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:background="@color/colorAccent"
+        android:gravity="center_horizontal|center_vertical"
+        android:onClick="teleInnerGoalPlusButton"
+        android:text="+"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        android:textSize="50sp"
+        app:fontFamily="@font/bitter"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.648"
+        app:layout_constraintStart_toEndOf="@+id/teleInnerGoalScoreTextView"
+        app:layout_constraintTop_toBottomOf="@+id/teleScore1TextView" />
+
+    <Button
+        android:id="@+id/teleInnerGoalMinusButton"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:background="@color/colorAccent"
+        android:onClick="teleInnerGoalMinusButton"
+        android:text="-"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        android:textSize="50sp"
+        android:textStyle="bold"
+        app:fontFamily="@font/bitter"
+        app:layout_constraintBottom_toBottomOf="@+id/teleInnerGoalPlusButton"
+        app:layout_constraintEnd_toStartOf="@+id/teleInnerGoalScoreTextView"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/teleScore1TextView" />
+
+    <TextView
+        android:id="@+id/teleScore1TextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal|center_vertical"
+        android:text="Inner"
+        android:textAppearance="@style/TextAppearance.AppCompat.Display2"
+        android:textColor="@color/colorAccent"
+        android:textStyle="bold"
+        app:fontFamily="@font/bitter"
+        app:layout_constraintBottom_toTopOf="@+id/teleOuterGoalScoreTextView"
+        app:layout_constraintEnd_toEndOf="@+id/teleInnerGoalPlusButton"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/teleInnerGoalPlusButton"
+        app:layout_constraintTop_toTopOf="@+id/imageView"
+        app:layout_constraintVertical_bias="0.285" />
+
+    <Button
+        android:id="@+id/teleOuterGoalMinusButton"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:background="@color/colorPrimary"
+        android:gravity="center"
+        android:onClick="teleOuterGoalMinusButton"
+        android:text="-"
+        android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+        android:textSize="50sp"
+        android:textStyle="bold"
+        app:fontFamily="@font/bitter"
+        app:layout_constraintBottom_toBottomOf="@+id/teleOuterGoalPlusButton"
+        app:layout_constraintEnd_toEndOf="@+id/teleInnerGoalMinusButton"
+        app:layout_constraintStart_toStartOf="@+id/teleInnerGoalMinusButton"
+        app:layout_constraintTop_toBottomOf="@+id/teleScore2TextView" />
+
+    <Button
+        android:id="@+id/teleOuterGoalPlusButton"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:background="@color/colorPrimary"
+        android:onClick="teleOuterGoalPlusButton"
+        android:text="+"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        android:textSize="50sp"
+        app:fontFamily="@font/bitter"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/teleInnerGoalPlusButton"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="@+id/teleInnerGoalPlusButton"
+        app:layout_constraintTop_toBottomOf="@+id/teleInnerGoalPlusButton"
+        app:layout_constraintVertical_bias="0.118" />
+
+    <TextView
+        android:id="@+id/teleOuterGoalScoreTextView"
+        android:layout_width="75dp"
+        android:layout_height="100dp"
+        android:gravity="center"
+        android:text="0"
+        android:textAppearance="@style/TextAppearance.AppCompat.Display3"
+        android:textColor="@color/colorPrimary"
+        android:textStyle="bold"
+        app:fontFamily="@font/bitter"
+        app:layout_constraintBottom_toBottomOf="@+id/imageView"
+        app:layout_constraintEnd_toEndOf="@+id/teleInnerGoalScoreTextView"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="@+id/teleInnerGoalScoreTextView"
+        app:layout_constraintTop_toTopOf="@+id/imageView"
+        app:layout_constraintVertical_bias="0.24000001" />
+
+    <TextView
+        android:id="@+id/teleLowGoalScoreTextView"
+        android:layout_width="75dp"
+        android:layout_height="100dp"
+        android:gravity="center"
+        android:text="0"
+        android:textAppearance="@style/TextAppearance.AppCompat.Display3"
+        android:textColor="@color/colorAccent"
+        android:textStyle="bold"
+        app:fontFamily="@font/bitter"
+        app:layout_constraintBottom_toBottomOf="@+id/teleLowGoalPlusButton"
+        app:layout_constraintEnd_toEndOf="@+id/teleOuterGoalScoreTextView"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="@+id/teleOuterGoalScoreTextView"
+        app:layout_constraintTop_toTopOf="@+id/teleLowGoalPlusButton" />
+
+    <Button
+        android:id="@+id/teleLowGoalMinusButton"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:background="@color/colorAccent"
+        android:onClick="teleLowGoalMinusButton"
+        android:text="-"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        android:textSize="50sp"
+        android:textStyle="bold"
+        app:fontFamily="@font/bitter"
+        app:layout_constraintBottom_toBottomOf="@+id/teleLowGoalPlusButton"
+        app:layout_constraintEnd_toEndOf="@+id/teleOuterGoalMinusButton"
+        app:layout_constraintStart_toStartOf="@+id/teleOuterGoalMinusButton"
+        app:layout_constraintTop_toTopOf="@+id/teleLowGoalPlusButton" />
+
+    <Button
+        android:id="@+id/teleLowGoalPlusButton"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:background="@color/colorAccent"
+        android:onClick="teleLowGoalPlusButton"
+        android:text="+"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        android:textSize="50sp"
+        android:textStyle="normal"
+        app:fontFamily="@font/bitter"
+        app:layout_constraintBottom_toBottomOf="@+id/imageView"
+        app:layout_constraintEnd_toEndOf="@+id/teleOuterGoalPlusButton"
+        app:layout_constraintStart_toStartOf="@+id/teleOuterGoalPlusButton"
+        app:layout_constraintTop_toBottomOf="@+id/teleOuterGoalPlusButton" />
+
+    <TextView
+        android:id="@+id/teleScore3TextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Low"
+        android:textAppearance="@style/TextAppearance.AppCompat.Display2"
+        android:textColor="@color/colorAccent"
+        android:textStyle="bold"
+        app:fontFamily="@font/bitter"
+        app:layout_constraintBottom_toTopOf="@+id/teleLowGoalPlusButton"
+        app:layout_constraintEnd_toEndOf="@+id/teleLowGoalPlusButton"
+        app:layout_constraintStart_toStartOf="@+id/teleLowGoalPlusButton"
+        app:layout_constraintTop_toBottomOf="@+id/teleOuterGoalPlusButton"
+        app:layout_constraintVertical_bias="0.7" />
+
+    <CheckBox
+        android:id="@+id/spinCheckbox"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Control Panel Spin 3-5"
+        android:textAppearance="@style/TextAppearance.AppCompat.Display2"
+        android:textColor="@color/colorAccent"
+        android:textStyle="bold"
+        app:fontFamily="@font/bitter"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView"
+        app:layout_constraintVertical_bias="0.25" />
+
+    <CheckBox
+        android:id="@+id/colorSpinCheckbox"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="Control Panel Color Alignment"
+        android:textAppearance="@style/TextAppearance.AppCompat.Display2"
+        android:textColor="@color/colorAccent"
+        android:textStyle="bold"
+        app:fontFamily="@font/bitter"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/spinCheckbox"
+        app:layout_constraintStart_toStartOf="@+id/spinCheckbox"
+        app:layout_constraintTop_toBottomOf="@+id/spinCheckbox" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
