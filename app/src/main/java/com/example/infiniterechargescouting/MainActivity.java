@@ -34,12 +34,13 @@ public class MainActivity extends AppCompatActivity {
     public static String controlPanelColor;
 
     //Endgame Array Variables
-    public static String climbStartTime;
+    public static String climbPosition;
+    public static String breakdown;
     public static String isBalanced;
     public static String comments = "";
 
     //All data array
-    public static String[] all_data_array = new String[15];
+    public static String[] all_data_array = new String[16];
 
 
 
@@ -207,8 +208,9 @@ public class MainActivity extends AppCompatActivity {
         all_data_array[9] = teleLowGoalText;
         all_data_array[10] = controlPanelSpin;
         all_data_array[11] = controlPanelColor;
-        all_data_array[12] = "";
+        all_data_array[12] = climbPosition;
         all_data_array[13] = isBalanced;
-        all_data_array[14] = comments;
+        all_data_array[14] = breakdown;
+        all_data_array[15] = comments;
     }
 }

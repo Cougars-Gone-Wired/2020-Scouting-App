@@ -9,7 +9,6 @@ import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.TextView;
 
-
 /**
  * A simple {@link Fragment} subclass.
  */
@@ -50,15 +49,15 @@ public class TeleopTab extends Fragment {
         //for the score variables. Those are entered through the MainActivity button methods
         spinCPCheckbox = view.findViewById(R.id.spinCheckbox);
         if (spinCPCheckbox.isChecked()) {
-            MainActivity.controlPanelSpin = "True";
+            MainActivity.controlPanelSpin = "1";
         } else {
-            MainActivity.controlPanelSpin = "False";
+            MainActivity.controlPanelSpin = "0";
         }
         colorCPCheckbox = view.findViewById(R.id.colorSpinCheckbox);
         if (colorCPCheckbox.isChecked()) {
-            MainActivity.controlPanelColor = "True";
+            MainActivity.controlPanelColor = "1";
         } else {
-            MainActivity.controlPanelColor = "False";
+            MainActivity.controlPanelColor = "0";
         }
     }
 

@@ -25,11 +25,12 @@ import androidx.fragment.app.Fragment;
  */
 public class EndgameTab extends Fragment {
 
-    public static final String[] endPositionArray = {"Please Select", ">60", "30 - 60", "20-30", "<20", "Did Not Climb"};
-    private static Spinner climbTimeSpinner;
+    public static final String[] endPositionArray = {"Please Select", "1", "2", "3", "4", "5", "Did Not Climb"};
+    private static Spinner climbPositionSpinner;
     private static EditText commentBox;
     private static View view;
     private static CheckBox balanceCheckbox;
+    private static CheckBox breakdownCheckbox;
 
     public EndgameTab() {
         // Required empty public constructor
@@ -49,11 +50,11 @@ public class EndgameTab extends Fragment {
 
 
     public void getSpinnerValues(View view) {
-        climbTimeSpinner = view.findViewById(R.id.endLevelSpinner);
-        climbTimeSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+        climbPositionSpinner = view.findViewById(R.id.climbPositionSpinner);
+        climbPositionSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
-                MainActivity.climbStartTime = climbTimeSpinner.getSelectedItem().toString();
+                MainActivity.climbPosition = climbPositionSpinner.getSelectedItem().toString();
             }
 
             @Override
@@ -64,7 +65,7 @@ public class EndgameTab extends Fragment {
     }
 
     public static void reset() {
-        climbTimeSpinner.setSelection(0);
+        climbPositionSpinner.setSelection(0);
         commentBox = view.findViewById(R.id.commentsEditText);
         commentBox.setText("");
         MainActivity.comments = "";
@@ -73,19 +74,30 @@ public class EndgameTab extends Fragment {
     }
 
     public void sets(View view) {
-        climbTimeSpinner = view.findViewById(R.id.endLevelSpinner);
+        climbPositionSpinner = view.findViewById(R.id.climbPositionSpinner);
         ArrayAdapter<CharSequence> endLevelSpinnerAdapter = new ArrayAdapter<CharSequence>(this.getActivity(), android.R.layout.simple_spinner_item, endPositionArray);
         endLevelSpinnerAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        climbTimeSpinner.setAdapter(endLevelSpinnerAdapter);
+        climbPositionSpinner.setAdapter(endLevelSpinnerAdapter);
     }
 
     public void enterData(View view) {
         balanceCheckbox = view.findViewById(R.id.balancedCheckbox);
         if (balanceCheckbox.isChecked()) {
-            MainActivity.isBalanced = "True";
+            MainActivity.isBalanced = "1";
         } else {
-            MainActivity.isBalanced = "False";
+            MainActivity.isBalanced = "0";
         }
+        breakdownCheckbox = view.findViewById(R.id.breakdownCheckbox);
+        breakdownCheckbox.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (balanceCheckbox.isChecked()) {
+                    MainActivity.breakdown = "1";
+                } else {
+                    MainActivity.breakdown = "0";
+                }
+            }
+        });
         commentBox = view.findViewById(R.id.commentsEditText);
         MainActivity.comments = commentBox.getText().toString();
     }
@@ -147,6 +159,5 @@ public class EndgameTab extends Fragment {
         //prints to Android/data/com.example.scoutingappframework/files
         writer.flush();
         writer.close();
-
     }
 }

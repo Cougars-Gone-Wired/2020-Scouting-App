@@ -20,6 +20,7 @@ public class AutoTab extends Fragment {
 
     private static EditText scoutNameEditText;
     private static EditText teamNumEditText;
+    private static EditText matchNumEditText;
     private static TextView autoScore1TextView;
     private static Button autoScore1MinusButton;
     private static Button autoScore1PlusButton;
@@ -60,10 +61,11 @@ public class AutoTab extends Fragment {
         scoutNameEditText = view.findViewById(R.id.scoutNameEditText);
         teamNumEditText = view.findViewById(R.id.teamNumEditText);
         baselineCheckbox = view.findViewById(R.id.baselineCheckbox);
+        matchNumEditText = view.findViewById(R.id.matchNumEditText);
         if (baselineCheckbox.isChecked()) {
-            MainActivity.crossedBaseline = "True";
+            MainActivity.crossedBaseline = "1";
         } else {
-            MainActivity.crossedBaseline = "False";
+            MainActivity.crossedBaseline = "0";
         }
 
         Button confirmButton = view.findViewById(R.id.confirmButton);
@@ -72,6 +74,7 @@ public class AutoTab extends Fragment {
             public void onClick(View v) {
                 MainActivity.scoutName = scoutNameEditText.getText().toString();
                 MainActivity.teamNum = teamNumEditText.getText().toString();
+                MainActivity.matchNum = matchNumEditText.getText().toString();
                 confirmation = true;
             }
         });
