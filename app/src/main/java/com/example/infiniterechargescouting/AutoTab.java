@@ -21,12 +21,13 @@ public class AutoTab extends Fragment {
     private static EditText scoutNameEditText;
     private static EditText teamNumEditText;
     private static EditText matchNumEditText;
-    private static TextView autoScore1TextView;
+    private static TextView autoInnerScoreTextView;
     private static Button autoScore1MinusButton;
     private static Button autoScore1PlusButton;
-    private static TextView autoScore2TextView;
+    private static TextView autoOuterScoreTextView;
     private static Button autoScore2MinusButton;
     private static Button autoScore2PlusButton;
+    private static TextView autoLowScoreTextView;
     private static Button confirmButton;
     private static View view;
     private static CheckBox baselineCheckbox;
@@ -62,19 +63,19 @@ public class AutoTab extends Fragment {
         teamNumEditText = view.findViewById(R.id.teamNumEditText);
         baselineCheckbox = view.findViewById(R.id.baselineCheckbox);
         matchNumEditText = view.findViewById(R.id.matchNumEditText);
-        if (baselineCheckbox.isChecked()) {
-            MainActivity.crossedBaseline = "1";
-        } else {
-            MainActivity.crossedBaseline = "0";
-        }
 
-        Button confirmButton = view.findViewById(R.id.confirmButton);
+        confirmButton = view.findViewById(R.id.confirmButton);
         confirmButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 MainActivity.scoutName = scoutNameEditText.getText().toString();
                 MainActivity.teamNum = teamNumEditText.getText().toString();
                 MainActivity.matchNum = matchNumEditText.getText().toString();
+                if (baselineCheckbox.isChecked()) {
+                    MainActivity.crossedBaseline = "1";
+                } else {
+                    MainActivity.crossedBaseline = "0";
+                }
                 confirmation = true;
             }
         });
@@ -91,18 +92,25 @@ public class AutoTab extends Fragment {
         teamNumEditText = view.findViewById(R.id.teamNumEditText);
         teamNumEditText.setText(MainActivity.teamNum);
 
-        autoScore1TextView = view.findViewById(R.id.autoInnerGoalScoreTextView);
+        autoInnerScoreTextView = view.findViewById(R.id.autoInnerGoalScoreTextView);
         if (MainActivity.autoInnerGoalNum == 0) {
-            autoScore1TextView.setText("0");
+            autoInnerScoreTextView.setText("0");
         } else {
-            autoScore1TextView.setText(MainActivity.autoInnerGoalText);
+            autoInnerScoreTextView.setText(MainActivity.autoInnerGoalText);
         }
 
-        autoScore2TextView = view.findViewById(R.id.autoLowGoalScoreTextView);
+        autoOuterScoreTextView = view.findViewById(R.id.autoOuterGoalScoreTextView);
         if (MainActivity.autoOuterGoalNum == 0) {
-            autoScore2TextView.setText("0");
+            autoOuterScoreTextView.setText("0");
         } else {
-            autoScore2TextView.setText(MainActivity.autoOuterGoalText);
+            autoOuterScoreTextView.setText(MainActivity.autoOuterGoalText);
+        }
+
+        autoLowScoreTextView = view.findViewById(R.id.autoLowGoalScoreTextView);
+        if (MainActivity.autoLowGoalNum == 0) {
+            autoLowScoreTextView.setText("0");
+        } else {
+            autoLowScoreTextView.setText(MainActivity.autoLowGoalText);
         }
     }
 
@@ -116,12 +124,16 @@ public class AutoTab extends Fragment {
         teamNumEditText.setText(MainActivity.teamNum);
         MainActivity.autoInnerGoalText = "";
         MainActivity.autoInnerGoalNum = 0;
-        autoScore1TextView = view.findViewById(R.id.autoInnerGoalScoreTextView);
-        autoScore1TextView.setText(MainActivity.autoInnerGoalText);
+        autoInnerScoreTextView = view.findViewById(R.id.autoInnerGoalScoreTextView);
+        autoInnerScoreTextView.setText(MainActivity.autoInnerGoalText);
         MainActivity.autoOuterGoalText = "";
         MainActivity.autoOuterGoalNum = 0;
-        autoScore2TextView = view.findViewById(R.id.autoLowGoalScoreTextView);
-        autoScore2TextView.setText(MainActivity.autoOuterGoalText);
+        autoOuterScoreTextView = view.findViewById(R.id.autoOuterGoalScoreTextView);
+        autoOuterScoreTextView.setText(MainActivity.autoOuterGoalText);
+        MainActivity.autoLowGoalText = "";
+        MainActivity.autoLowGoalNum = 0;
+        autoLowScoreTextView = view.findViewById(R.id.autoLowGoalScoreTextView);
+        autoLowScoreTextView.setText(MainActivity.autoLowGoalText);
         baselineCheckbox = view.findViewById(R.id.baselineCheckbox);
         baselineCheckbox.setChecked(false);
     }

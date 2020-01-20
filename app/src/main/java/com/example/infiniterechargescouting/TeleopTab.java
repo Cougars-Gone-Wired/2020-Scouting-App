@@ -14,13 +14,13 @@ import android.widget.TextView;
  */
 public class TeleopTab extends Fragment {
 
-    private static TextView teleScore1ScoreTextView;
+    private static TextView teleInnerScoreTextView;
     private static Button teleScore1PlusButton;
     private static Button teleScore1MinusButton;
-    private static TextView teleScore2ScoreTextView;
+    private static TextView teleOuterScoreTextView;
     private static Button teleScore2PlusButton;
     private static Button teleScore2MinusButton;
-    private static TextView teleScore3ScoreTextView;
+    private static TextView teleLowScoreTextView;
     private static Button teleScore3PlusButton;
     private static Button teleScore3MinusButton;
     private static TextView teleScore4ScoreTextView;
@@ -44,7 +44,7 @@ public class TeleopTab extends Fragment {
         return view;
     }
 
-    public void enterData () {
+    public static void enterData () {
         //This enters all variable data from this class into the mainActivity variables except
         //for the score variables. Those are entered through the MainActivity button methods
         spinCPCheckbox = view.findViewById(R.id.spinCheckbox);
@@ -65,42 +65,42 @@ public class TeleopTab extends Fragment {
         //This sets all text boxes and score values to the saved variables so they don't
         //Disappear when switching between tabs
         //If statements are for setting the text boxes to 0 initially, otherwise they begin blank
-        teleScore1ScoreTextView = view.findViewById(R.id.teleInnerGoalScoreTextView);
+        teleInnerScoreTextView = view.findViewById(R.id.teleInnerGoalScoreTextView);
         if (MainActivity.teleInnerGoalNum == 0) {
-            teleScore1ScoreTextView.setText("0");
+            teleInnerScoreTextView.setText("0");
         } else {
-            teleScore1ScoreTextView.setText(MainActivity.teleInnerGoalText);
+            teleInnerScoreTextView.setText(MainActivity.teleInnerGoalText);
         }
 
-        teleScore2ScoreTextView = view.findViewById(R.id.teleOuterGoalScoreTextView);
+        teleOuterScoreTextView = view.findViewById(R.id.teleOuterGoalScoreTextView);
         if (MainActivity.teleOuterGoalNum == 0) {
-            teleScore2ScoreTextView.setText("0");
+            teleOuterScoreTextView.setText("0");
         } else {
-            teleScore2ScoreTextView.setText(MainActivity.teleOuterGoalText);
+            teleOuterScoreTextView.setText(MainActivity.teleOuterGoalText);
         }
 
-        teleScore3ScoreTextView = view.findViewById(R.id.teleLowGoalScoreTextView);
+        teleLowScoreTextView = view.findViewById(R.id.teleLowGoalScoreTextView);
         if (MainActivity.teleLowGoalNum == 0) {
-            teleScore3ScoreTextView.setText("0");
+            teleLowScoreTextView.setText("0");
         } else {
-            teleScore3ScoreTextView.setText(MainActivity.teleLowGoalText);
+            teleLowScoreTextView.setText(MainActivity.teleLowGoalText);
         }
     }
 
     public static void reset () {
         //Resets all variables and text boxes, called by submitButton in EndgameTab class
-        teleScore1ScoreTextView = view.findViewById(R.id.teleInnerGoalScoreTextView);
-        teleScore1ScoreTextView.setText("");
+        teleInnerScoreTextView = view.findViewById(R.id.teleInnerGoalScoreTextView);
+        teleInnerScoreTextView.setText("");
         MainActivity.teleInnerGoalNum = 0;
         MainActivity.teleInnerGoalText = "";
 
-        teleScore2ScoreTextView = view.findViewById(R.id.teleOuterGoalScoreTextView);
-        teleScore2ScoreTextView.setText("");
+        teleOuterScoreTextView = view.findViewById(R.id.teleOuterGoalScoreTextView);
+        teleOuterScoreTextView.setText("");
         MainActivity.teleOuterGoalNum = 0;
         MainActivity.teleOuterGoalText = "";
 
-        teleScore3ScoreTextView = view.findViewById(R.id.teleLowGoalScoreTextView);
-        teleScore3ScoreTextView.setText("");
+        teleLowScoreTextView = view.findViewById(R.id.teleLowGoalScoreTextView);
+        teleLowScoreTextView.setText("");
         MainActivity.teleLowGoalNum = 0;
         MainActivity.teleLowGoalText = "";
 
@@ -108,5 +108,7 @@ public class TeleopTab extends Fragment {
         spinCPCheckbox = view.findViewById(R.id.spinCheckbox);
         colorCPCheckbox.setChecked(false);
         spinCPCheckbox.setChecked(false);
+        MainActivity.controlPanelColor = "";
+        MainActivity.controlPanelSpin = "";
     }
 }

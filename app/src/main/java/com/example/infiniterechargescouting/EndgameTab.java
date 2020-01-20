@@ -71,6 +71,10 @@ public class EndgameTab extends Fragment {
         MainActivity.comments = "";
         balanceCheckbox = view.findViewById(R.id.balancedCheckbox);
         balanceCheckbox.setChecked(false);
+        MainActivity.isBalanced = "";
+        breakdownCheckbox = view.findViewById(R.id.breakdownCheckbox);
+        breakdownCheckbox.setChecked(false);
+        MainActivity.breakdown = "";
     }
 
     public void sets(View view) {
@@ -88,16 +92,11 @@ public class EndgameTab extends Fragment {
             MainActivity.isBalanced = "0";
         }
         breakdownCheckbox = view.findViewById(R.id.breakdownCheckbox);
-        breakdownCheckbox.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (balanceCheckbox.isChecked()) {
-                    MainActivity.breakdown = "1";
-                } else {
-                    MainActivity.breakdown = "0";
-                }
-            }
-        });
+        if (breakdownCheckbox.isChecked()) {
+            MainActivity.breakdown = "1";
+        } else {
+            MainActivity.breakdown = "0";
+        }
         commentBox = view.findViewById(R.id.commentsEditText);
         MainActivity.comments = commentBox.getText().toString();
     }
@@ -107,6 +106,7 @@ public class EndgameTab extends Fragment {
         submitButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                TeleopTab.enterData();
                 enterData(view);
                 MainActivity.setDataArray();
                 try {
