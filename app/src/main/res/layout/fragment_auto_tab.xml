@@ -158,11 +158,9 @@
         android:text="-"
         android:textSize="50sp"
         app:fontFamily="@font/bitter"
-        app:layout_constraintBottom_toTopOf="@+id/confirmButton"
         app:layout_constraintEnd_toEndOf="@+id/outerGoalAutoMinusButton"
         app:layout_constraintStart_toStartOf="@+id/outerGoalAutoMinusButton"
-        app:layout_constraintTop_toTopOf="@+id/autoLowGoalScoreTextView"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintTop_toTopOf="@+id/autoLowGoalScoreTextView" />
 
     <Button
         android:id="@+id/autoLowGoalPlusButton"
@@ -173,28 +171,9 @@
         android:text="+"
         android:textSize="50sp"
         app:fontFamily="@font/bitter"
-        app:layout_constraintBottom_toTopOf="@+id/confirmButton"
         app:layout_constraintEnd_toEndOf="@+id/outerGoalAutoPlusButton"
         app:layout_constraintStart_toStartOf="@+id/outerGoalAutoPlusButton"
-        app:layout_constraintTop_toTopOf="@+id/autoLowGoalScoreTextView"
-        app:layout_constraintVertical_bias="0.0" />
-
-    <Button
-        android:id="@+id/confirmButton"
-        android:layout_width="200dp"
-        android:layout_height="125dp"
-        android:background="@color/colorPrimary"
-        android:text="CONFIRM"
-        android:textAppearance="@style/TextAppearance.AppCompat.Display1"
-        android:textColor="@color/colorPrimaryDark"
-        android:textSize="35sp"
-        android:textStyle="bold"
-        app:fontFamily="@font/bitter"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/autoLowGoalScoreTextView"
-        app:layout_constraintVertical_bias="0.817" />
+        app:layout_constraintTop_toTopOf="@+id/autoLowGoalScoreTextView" />
 
     <Button
         android:id="@+id/outerGoalAutoPlusButton"
@@ -257,8 +236,9 @@
         android:layout_height="wrap_content"
         android:text="Robot Crossed Baseline"
         android:textAppearance="@style/TextAppearance.AppCompat.Display2"
-        android:textColor="@color/colorAccent"
+        android:textColor="@color/colorPrimary"
         android:textStyle="bold"
+        android:buttonTint="@color/colorPrimary"
         app:layout_constraintBottom_toTopOf="@+id/imageView2"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

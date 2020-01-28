@@ -31,6 +31,7 @@ public class EndgameTab extends Fragment {
     private static View view;
     private static CheckBox balanceCheckbox;
     private static CheckBox breakdownCheckbox;
+    private static CheckBox climbCheckbox;
 
     public EndgameTab() {
         // Required empty public constructor
@@ -42,14 +43,14 @@ public class EndgameTab extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         view = inflater.inflate(R.layout.fragment_endgame_tab, container, false);
-        getSpinnerValues(view);
+        //getSpinnerValues(view);
         sets(view);
-        submitButton(view);
+        submitButton();
         return view;
     }
 
 
-    public void getSpinnerValues(View view) {
+    /*public void getSpinnerValues(View view) {
         climbPositionSpinner = view.findViewById(R.id.climbPositionSpinner);
         climbPositionSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
@@ -62,10 +63,10 @@ public class EndgameTab extends Fragment {
 
             }
         });
-    }
+    }*/
 
     public static void reset() {
-        climbPositionSpinner.setSelection(0);
+        //climbPositionSpinner.setSelection(0);
         commentBox = view.findViewById(R.id.commentsEditText);
         commentBox.setText("");
         MainActivity.comments = "";
@@ -75,16 +76,18 @@ public class EndgameTab extends Fragment {
         breakdownCheckbox = view.findViewById(R.id.breakdownCheckbox);
         breakdownCheckbox.setChecked(false);
         MainActivity.breakdown = "";
+        climbCheckbox.setChecked(false);
+        MainActivity.climb = "";
     }
 
     public void sets(View view) {
-        climbPositionSpinner = view.findViewById(R.id.climbPositionSpinner);
-        ArrayAdapter<CharSequence> endLevelSpinnerAdapter = new ArrayAdapter<CharSequence>(this.getActivity(), android.R.layout.simple_spinner_item, endPositionArray);
-        endLevelSpinnerAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        climbPositionSpinner.setAdapter(endLevelSpinnerAdapter);
+        //climbPositionSpinner = view.findViewById(R.id.climbPositionSpinner);
+        //ArrayAdapter<CharSequence> endLevelSpinnerAdapter = new ArrayAdapter<CharSequence>(this.getActivity(), android.R.layout.simple_spinner_item, endPositionArray);
+        //endLevelSpinnerAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        //climbPositionSpinner.setAdapter(endLevelSpinnerAdapter);
     }
 
-    public void enterData(View view) {
+    public void enterData() {
         balanceCheckbox = view.findViewById(R.id.balancedCheckbox);
         if (balanceCheckbox.isChecked()) {
             MainActivity.isBalanced = "1";
@@ -97,17 +100,24 @@ public class EndgameTab extends Fragment {
         } else {
             MainActivity.breakdown = "0";
         }
+        climbCheckbox = view.findViewById(R.id.climbCheckbox);
+        if (climbCheckbox.isChecked()) {
+            MainActivity.climb = "1";
+        } else {
+            MainActivity.climb = "0";
+        }
         commentBox = view.findViewById(R.id.commentsEditText);
         MainActivity.comments = commentBox.getText().toString();
     }
 
-    public void submitButton(final View view) {
+    public void submitButton() {
         Button submitButton = view.findViewById(R.id.submitButton);
         submitButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                AutoTab.enterData();
                 TeleopTab.enterData();
-                enterData(view);
+                enterData();
                 MainActivity.setDataArray();
                 try {
                     writeData();

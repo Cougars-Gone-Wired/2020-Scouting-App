@@ -12,25 +12,20 @@
 
     <EditText
         android:id="@+id/commentsEditText"
-        android:layout_width="0dp"
+        android:layout_width="500dp"
         android:layout_height="50dp"
-        android:layout_marginStart="64dp"
-        android:layout_marginLeft="64dp"
-        android:layout_marginEnd="64dp"
-        android:layout_marginRight="64dp"
         android:background="@color/colorAccent"
         android:ems="10"
         android:gravity="center"
-        android:hint="Comments"
+        android:hint="Comments (no commas!)"
         android:inputType="text"
         android:textSize="35sp"
         app:fontFamily="@font/bitter"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.743" />
+        app:layout_constraintTop_toBottomOf="@+id/balancedCheckbox"
+        app:layout_constraintVertical_bias="0.25" />
 
     <Button
         android:id="@+id/submitButton"
@@ -45,65 +40,57 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.47"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/commentsEditText"
-        app:layout_constraintVertical_bias="0.723" />
-
-    <Spinner
-        android:id="@+id/climbPositionSpinner"
-        android:layout_width="0dp"
-        android:layout_height="50dp"
-        android:layout_marginStart="64dp"
-        android:layout_marginLeft="64dp"
-        android:layout_marginEnd="64dp"
-        android:layout_marginRight="64dp"
-        android:background="@color/colorAccent"
-        android:gravity="center"
-        android:popupBackground="@color/colorPrimary"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.445" />
+        app:layout_constraintTop_toBottomOf="@+id/commentsEditText" />
 
     <CheckBox
         android:id="@+id/balancedCheckbox"
-        android:layout_width="wrap_content"
+        android:layout_width="500dp"
         android:layout_height="wrap_content"
-        android:gravity="center"
+        android:background="@color/colorPrimaryDark"
+        android:buttonTint="@color/colorPrimary"
+        android:gravity="center_vertical"
         android:text="Team is Balanced"
-        android:textColor="@color/colorAccent"
+        android:textColor="@color/colorPrimary"
         android:textSize="50sp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/commentsEditText"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.502"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/climbPositionSpinner"
-        app:layout_constraintVertical_bias="0.23000002" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.217" />
 
     <CheckBox
         android:id="@+id/breakdownCheckbox"
-        android:layout_width="wrap_content"
+        android:layout_width="500dp"
         android:layout_height="wrap_content"
-        android:gravity="center"
+        android:buttonTint="@color/colorPrimary"
+        android:gravity="center_vertical"
         android:text="Robot Broke "
-        android:textColor="@color/colorAccent"
+        android:textColor="@color/colorPrimary"
         android:textSize="50sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/commentsEditText"
         app:layout_constraintEnd_toEndOf="@+id/balancedCheckbox"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/balancedCheckbox"
-        app:layout_constraintTop_toBottomOf="@+id/balancedCheckbox" />
+        app:layout_constraintTop_toBottomOf="@+id/balancedCheckbox"
+        app:layout_constraintVertical_bias="0.547" />
 
-    <ImageView
-        android:id="@+id/imageView3"
-        android:layout_width="522dp"
-        android:layout_height="686dp"
-        android:layout_marginBottom="476dp"
-        android:src="@drawable/hanger"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+    <CheckBox
+        android:id="@+id/climbCheckbox"
+        android:layout_width="500dp"
+        android:layout_height="wrap_content"
+        android:buttonTint="@color/colorPrimary"
+        android:gravity="center_vertical"
+        android:text="Robot Climbed"
+        android:textColor="@color/colorPrimary"
+        android:textSize="50sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/balancedCheckbox"
+        app:layout_constraintEnd_toEndOf="@+id/balancedCheckbox"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/balancedCheckbox"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.716" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

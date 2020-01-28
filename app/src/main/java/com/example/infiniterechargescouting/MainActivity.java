@@ -17,7 +17,7 @@ public class MainActivity extends AppCompatActivity {
     public static String matchNum = "";
     public static String autoInnerGoalText = "";
     public static String autoOuterGoalText = "";
-    public static String crossedBaseline = "";
+    public static String crossedBaseline;
     public static String autoLowGoalText = "";
     public static int autoInnerGoalNum = 0;
     public static int autoOuterGoalNum = 0;
@@ -34,7 +34,7 @@ public class MainActivity extends AppCompatActivity {
     public static String controlPanelColor;
 
     //Endgame Array Variables
-    public static String climbPosition;
+    public static String climb;
     public static String breakdown;
     public static String isBalanced;
     public static String comments = "";
@@ -208,7 +208,7 @@ public class MainActivity extends AppCompatActivity {
         all_data_array[9] = teleLowGoalText;
         all_data_array[10] = controlPanelSpin;
         all_data_array[11] = controlPanelColor;
-        all_data_array[12] = climbPosition;
+        all_data_array[12] = climb;
         all_data_array[13] = isBalanced;
         all_data_array[14] = breakdown;
         all_data_array[15] = comments;

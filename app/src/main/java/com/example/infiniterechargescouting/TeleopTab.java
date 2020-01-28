@@ -40,7 +40,7 @@ public class TeleopTab extends Fragment {
         // Inflate the layout for this fragment
         view = inflater.inflate(R.layout.fragment_teleop_tab, container, false); //creates view
         sets(view);
-        enterData();
+        //enterData();
         return view;
     }
 

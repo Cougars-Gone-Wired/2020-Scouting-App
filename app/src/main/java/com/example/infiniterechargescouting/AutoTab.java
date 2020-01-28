@@ -45,7 +45,7 @@ public class AutoTab extends Fragment {
         super.onCreate(savedInstanceState);
         view = inflater.inflate(R.layout.fragment_auto_tab, container, false); //creates view
         sets(view);
-        enterData(view);
+        //enterData();
         return view;
     }
 
@@ -56,16 +56,23 @@ public class AutoTab extends Fragment {
     }
 
 
-    public static void enterData(View view) {
+    public static void enterData() {
         //This enters all variable data from this class into the mainActivity variables except
         //for the score variables. Those are entered through the mainActivity button methods
         scoutNameEditText = view.findViewById(R.id.scoutNameEditText);
         teamNumEditText = view.findViewById(R.id.teamNumEditText);
         baselineCheckbox = view.findViewById(R.id.baselineCheckbox);
         matchNumEditText = view.findViewById(R.id.matchNumEditText);
-
-        confirmButton = view.findViewById(R.id.confirmButton);
-        confirmButton.setOnClickListener(new View.OnClickListener() {
+        //confirmButton = view.findViewById(R.id.confirmButton);
+        MainActivity.scoutName = scoutNameEditText.getText().toString();
+        MainActivity.teamNum = teamNumEditText.getText().toString();
+        MainActivity.matchNum = matchNumEditText.getText().toString();
+        if (baselineCheckbox.isChecked()) {
+            MainActivity.crossedBaseline = "1";
+        } else {
+            MainActivity.crossedBaseline = "0";
+        }
+        /*confirmButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 MainActivity.scoutName = scoutNameEditText.getText().toString();
@@ -78,7 +85,7 @@ public class AutoTab extends Fragment {
                 }
                 confirmation = true;
             }
-        });
+        });*/
     }
 
 
@@ -118,7 +125,8 @@ public class AutoTab extends Fragment {
         //Resets all textViews and textBoxes and variables, called from submitButton in EndgameTab
         MainActivity.scoutName = "";
         scoutNameEditText = view.findViewById(R.id.scoutNameEditText);
-        scoutNameEditText.setText(MainActivity.scoutName);
+        scoutNameEditText.setText("");
+        //scoutNameEditText.setText(MainActivity.scoutName);
         MainActivity.teamNum = "";
         teamNumEditText = view.findViewById(R.id.teamNumEditText);
         teamNumEditText.setText(MainActivity.teamNum);
