@@ -72,12 +72,12 @@ public class EndgameTab extends Fragment {
         MainActivity.comments = "";
         balanceCheckbox = view.findViewById(R.id.balancedCheckbox);
         balanceCheckbox.setChecked(false);
-        MainActivity.isBalanced = "";
+        MainActivity.isBalanced = "0";
         breakdownCheckbox = view.findViewById(R.id.breakdownCheckbox);
         breakdownCheckbox.setChecked(false);
-        MainActivity.breakdown = "";
+        MainActivity.breakdown = "0";
         climbCheckbox.setChecked(false);
-        MainActivity.climb = "";
+        MainActivity.climb = "0";
     }
 
     public void sets(View view) {

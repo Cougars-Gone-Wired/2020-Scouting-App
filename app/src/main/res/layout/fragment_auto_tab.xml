@@ -14,8 +14,10 @@
         android:layout_height="585dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.51"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.77"
         app:srcCompat="@drawable/power_port" />
 
     <EditText
@@ -23,8 +25,6 @@
         android:layout_width="280dp"
         android:layout_height="50dp"
         android:layout_marginTop="16dp"
-        android:layout_marginEnd="16dp"
-        android:layout_marginRight="16dp"
         android:background="@color/colorAccent"
         android:ems="10"
         android:gravity="bottom|center_horizontal"
@@ -32,27 +32,9 @@
         android:inputType="text"
         android:textAppearance="@style/TextAppearance.AppCompat.Display1"
         app:fontFamily="@font/bitter"
-        app:layout_constraintEnd_toStartOf="@+id/teamNumEditText"
-        app:layout_constraintHorizontal_bias="0.1"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <EditText
-        android:id="@+id/teamNumEditText"
-        android:layout_width="150dp"
-        android:layout_height="50dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="16dp"
-        android:layout_marginRight="16dp"
-        android:background="@color/colorAccent"
-        android:ems="10"
-        android:gravity="center_horizontal|center_vertical"
-        android:hint="TEAM #"
-        android:inputType="number"
-        android:numeric="integer"
-        android:textAppearance="@style/TextAppearance.AppCompat.Display1"
-        app:fontFamily="@font/bitter"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.018"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
@@ -254,9 +236,38 @@
         android:hint="Match #"
         android:inputType="number"
         android:textSize="35sp"
-        app:layout_constraintBottom_toBottomOf="@+id/teamNumEditText"
-        app:layout_constraintEnd_toStartOf="@+id/teamNumEditText"
-        app:layout_constraintStart_toEndOf="@+id/scoutNameEditText"
-        app:layout_constraintTop_toTopOf="@+id/teamNumEditText" />
+        app:layout_constraintBottom_toBottomOf="@+id/scoutNameEditText"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.128"
+        app:layout_constraintStart_toEndOf="@+id/scoutNameEditText" />
+
+    <Button
+        android:id="@+id/setMatchButton"
+        android:layout_width="100dp"
+        android:layout_height="50dp"
+        android:background="@color/colorPrimary"
+        android:text="SET"
+        android:textSize="35sp"
+        android:textStyle="bold"
+        android:fontFamily="@font/bitter"
+        app:layout_constraintBottom_toBottomOf="@+id/matchNumEditText"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/matchNumEditText"
+        app:layout_constraintTop_toTopOf="@+id/matchNumEditText" />
+
+    <TextView
+        android:id="@+id/teamNumTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="0000"
+        android:textColor="@color/colorAccent"
+        android:textSize="50sp"
+        android:textStyle="bold"
+        app:fontFamily="@font/bitter"
+        app:layout_constraintBottom_toTopOf="@+id/baselineCheckbox"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/matchNumEditText" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -92,23 +92,23 @@ public class TeleopTab extends Fragment {
         teleInnerScoreTextView = view.findViewById(R.id.teleInnerGoalScoreTextView);
         teleInnerScoreTextView.setText("");
         MainActivity.teleInnerGoalNum = 0;
-        MainActivity.teleInnerGoalText = "";
+        MainActivity.teleInnerGoalText = "0";
 
         teleOuterScoreTextView = view.findViewById(R.id.teleOuterGoalScoreTextView);
         teleOuterScoreTextView.setText("");
         MainActivity.teleOuterGoalNum = 0;
-        MainActivity.teleOuterGoalText = "";
+        MainActivity.teleOuterGoalText = "0";
 
         teleLowScoreTextView = view.findViewById(R.id.teleLowGoalScoreTextView);
         teleLowScoreTextView.setText("");
         MainActivity.teleLowGoalNum = 0;
-        MainActivity.teleLowGoalText = "";
+        MainActivity.teleLowGoalText = "0";
 
         colorCPCheckbox = view.findViewById(R.id.colorSpinCheckbox);
         spinCPCheckbox = view.findViewById(R.id.spinCheckbox);
         colorCPCheckbox.setChecked(false);
         spinCPCheckbox.setChecked(false);
-        MainActivity.controlPanelColor = "";
-        MainActivity.controlPanelSpin = "";
+        MainActivity.controlPanelColor = "0";
+        MainActivity.controlPanelSpin = "0";
     }
 }
