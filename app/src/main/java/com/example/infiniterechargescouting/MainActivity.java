@@ -12,24 +12,24 @@ import com.google.android.material.tabs.TabLayout;
 public class MainActivity extends AppCompatActivity {
 
     //Auto Array Variables
-    public static String scoutName = "";
-    public static String teamNum = "";
-    public static String matchNum = "";
-    public static String autoInnerGoalText = "";
-    public static String autoOuterGoalText = "";
+    public static String scoutName;
+    public static String teamNum = "0000";
+    public static String matchNum;
+    public static String autoInnerGoalText = "0";
+    public static String autoOuterGoalText = "0";
     public static String crossedBaseline;
-    public static String autoLowGoalText = "";
+    public static String autoLowGoalText = "0";
     public static int autoInnerGoalNum = 0;
     public static int autoOuterGoalNum = 0;
     public static int autoLowGoalNum = 0;
 
     //Teleop Array Variables
-    public static String teleInnerGoalText;
-    public static int teleInnerGoalNum;
-    public static String teleOuterGoalText;
-    public static int teleOuterGoalNum;
-    public static String teleLowGoalText;
-    public static int teleLowGoalNum;
+    public static String teleInnerGoalText = "0";
+    public static int teleInnerGoalNum = 0;
+    public static String teleOuterGoalText = "0";
+    public static int teleOuterGoalNum = 0;
+    public static String teleLowGoalText = "0";
+    public static int teleLowGoalNum = 0;
     public static String controlPanelSpin;
     public static String controlPanelColor;
 
@@ -37,10 +37,11 @@ public class MainActivity extends AppCompatActivity {
     public static String climb;
     public static String breakdown;
     public static String isBalanced;
+    public static  String finalScore;
     public static String comments = "";
 
     //All data array
-    public static String[] all_data_array = new String[16];
+    public static String[] all_data_array = new String[17];
 
 
 
@@ -211,6 +212,7 @@ public class MainActivity extends AppCompatActivity {
         all_data_array[12] = climb;
         all_data_array[13] = isBalanced;
         all_data_array[14] = breakdown;
-        all_data_array[15] = comments;
+        all_data_array[15] = finalScore;
+        all_data_array[16] = comments;
     }
 }

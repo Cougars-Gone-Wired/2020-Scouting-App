@@ -32,8 +32,8 @@ public class AutoTab extends Fragment {
     private static View view;
     private static CheckBox baselineCheckbox;
     private static Button setMatchButton;
+    private static int match;
     private static Boolean confirmation = false;
-
 
     public AutoTab() {
         // Required empty public constructor
@@ -73,75 +73,78 @@ public class AutoTab extends Fragment {
             public void onClick(View v) { //The onClick method runs when a button is clicked
 
                 //these lines must be inside an onClick method since onCreateView only runs when window is created.
-                int match_number = Integer.valueOf(matchNumEditText.getText().toString());
-
-
-                if (match_number > MatchList.numMatches) {
-                    teamNumTextView.setText("match does not exist");
-                } else if (match_number >= 1 && match_number <= MatchList.numMatches) {
-                    teamNumTextView.setText(MatchList.teamArray[Integer.valueOf(matchNumEditText.getText().toString()) - 1]);
+                if (teamNumTextView.getText().toString().equals("")) {
+                    teamNumTextView.setText("Please enter a match number");
                 } else {
-                    teamNumTextView.setText("no match selected");
+                    int match_number = Integer.valueOf(matchNumEditText.getText().toString());
+
+
+                    if (match_number > MatchList.numMatches) {
+                        teamNumTextView.setText("match does not exist");
+                    } else if (match_number >= 1 && match_number <= MatchList.numMatches) {
+                        teamNumTextView.setText(MatchList.teamArray[Integer.valueOf(matchNumEditText.getText().toString()) - 1]);
+                    } else {
+                        teamNumTextView.setText("no match selected");
+                    }
+                    MainActivity.teamNum = teamNumTextView.getText().toString();
                 }
-                MainActivity.teamNum = teamNumTextView.getText().toString();
             }
         });
     }
-            public void sets(View view) {
-                //This sets text boxes and scores to the saved variables so they don't disappear when
-                //switching between tabs
-                //If statements for setting text views to 0 initially, otherwise they start blank
-                scoutNameEditText = view.findViewById(R.id.scoutNameEditText);
-                scoutNameEditText.setText(MainActivity.scoutName);
+    public void sets(View view) {
+        //This sets text boxes and scores to the saved variables so they don't disappear when
+        //switching between tabs
+        //If statements for setting text views to 0 initially, otherwise they start blank
 
-                teamNumTextView = view.findViewById(R.id.teamNumTextView);
-                teamNumTextView.setText(MainActivity.teamNum);
+        teamNumTextView = view.findViewById(R.id.teamNumTextView);
+        teamNumTextView.setText(MainActivity.teamNum);
+        autoInnerScoreTextView = view.findViewById(R.id.autoInnerGoalScoreTextView);
+        if (MainActivity.autoInnerGoalNum == 0) {
+            autoInnerScoreTextView.setText("0");
+        } else {
+            autoInnerScoreTextView.setText(MainActivity.autoInnerGoalText);
+        }
 
-                autoInnerScoreTextView = view.findViewById(R.id.autoInnerGoalScoreTextView);
-                if (MainActivity.autoInnerGoalNum == 0) {
-                    autoInnerScoreTextView.setText("0");
-                } else {
-                    autoInnerScoreTextView.setText(MainActivity.autoInnerGoalText);
-                }
+        autoOuterScoreTextView = view.findViewById(R.id.autoOuterGoalScoreTextView);
+        if (MainActivity.autoOuterGoalNum == 0) {
+            autoOuterScoreTextView.setText("0");
+        } else {
+            autoOuterScoreTextView.setText(MainActivity.autoOuterGoalText);
+        }
 
-                autoOuterScoreTextView = view.findViewById(R.id.autoOuterGoalScoreTextView);
-                if (MainActivity.autoOuterGoalNum == 0) {
-                    autoOuterScoreTextView.setText("0");
-                } else {
-                    autoOuterScoreTextView.setText(MainActivity.autoOuterGoalText);
-                }
+        autoLowScoreTextView = view.findViewById(R.id.autoLowGoalScoreTextView);
+        if (MainActivity.autoLowGoalNum == 0) {
+            autoLowScoreTextView.setText("0");
+        } else {
+            autoLowScoreTextView.setText(MainActivity.autoLowGoalText);
+        }
+    }
 
-                autoLowScoreTextView = view.findViewById(R.id.autoLowGoalScoreTextView);
-                if (MainActivity.autoLowGoalNum == 0) {
-                    autoLowScoreTextView.setText("0");
-                } else {
-                    autoLowScoreTextView.setText(MainActivity.autoLowGoalText);
-                }
-            }
-
-            public static void reset() {
-                //Resets all textViews and textBoxes and variables, called from submitButton in EndgameTab
-                MainActivity.scoutName = "";
-                scoutNameEditText = view.findViewById(R.id.scoutNameEditText);
-                scoutNameEditText.setText("");
-                //scoutNameEditText.setText(MainActivity.scoutName);
-                MainActivity.teamNum = "";
-                teamNumTextView = view.findViewById(R.id.teamNumTextView);
-                teamNumTextView.setText("0000");
-                MainActivity.autoInnerGoalText = "0";
-                MainActivity.autoInnerGoalNum = 0;
-                autoInnerScoreTextView = view.findViewById(R.id.autoInnerGoalScoreTextView);
-                autoInnerScoreTextView.setText(MainActivity.autoInnerGoalText);
-                MainActivity.autoOuterGoalText = "0";
-                MainActivity.autoOuterGoalNum = 0;
-                autoOuterScoreTextView = view.findViewById(R.id.autoOuterGoalScoreTextView);
-                autoOuterScoreTextView.setText(MainActivity.autoOuterGoalText);
-                MainActivity.autoLowGoalText = "0";
-                MainActivity.autoLowGoalNum = 0;
-                autoLowScoreTextView = view.findViewById(R.id.autoLowGoalScoreTextView);
-                autoLowScoreTextView.setText(MainActivity.autoLowGoalText);
-                baselineCheckbox = view.findViewById(R.id.baselineCheckbox);
-                baselineCheckbox.setChecked(false);
-                MainActivity.crossedBaseline = "0";
-            }
+    public static void reset() {
+        //Resets all textViews and textBoxes and variables, called from submitButton in EndgameTab
+        MainActivity.scoutName = "";
+        scoutNameEditText = view.findViewById(R.id.scoutNameEditText);
+        MainActivity.teamNum = "Team Num";
+        scoutNameEditText.setText(MainActivity.scoutName);
+        teamNumTextView = view.findViewById(R.id.teamNumTextView);
+        teamNumTextView.setText(MainActivity.teamNum);
+        MainActivity.matchNum = "0";
+        matchNumEditText = view.findViewById(R.id.matchNumEditText);
+        matchNumEditText.setText("");
+        MainActivity.autoInnerGoalText = "0";
+        MainActivity.autoInnerGoalNum = 0;
+        autoInnerScoreTextView = view.findViewById(R.id.autoInnerGoalScoreTextView);
+        autoInnerScoreTextView.setText(MainActivity.autoInnerGoalText);
+        MainActivity.autoOuterGoalText = "0";
+        MainActivity.autoOuterGoalNum = 0;
+        autoOuterScoreTextView = view.findViewById(R.id.autoOuterGoalScoreTextView);
+        autoOuterScoreTextView.setText(MainActivity.autoOuterGoalText);
+        MainActivity.autoLowGoalText = "0";
+        MainActivity.autoLowGoalNum = 0;
+        autoLowScoreTextView = view.findViewById(R.id.autoLowGoalScoreTextView);
+        autoLowScoreTextView.setText(MainActivity.autoLowGoalText);
+        baselineCheckbox = view.findViewById(R.id.baselineCheckbox);
+        baselineCheckbox.setChecked(false);
+        MainActivity.crossedBaseline = "0";
+    }
 }

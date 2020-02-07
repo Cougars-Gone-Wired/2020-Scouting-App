@@ -38,7 +38,6 @@
         app:fontFamily="@font/bitter"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.47"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/commentsEditText" />
 
@@ -92,5 +91,21 @@
         app:layout_constraintStart_toStartOf="@+id/balancedCheckbox"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.716" />
+
+    <EditText
+        android:id="@+id/finalScoreEditText"
+        android:layout_width="500dp"
+        android:layout_height="wrap_content"
+        android:background="@color/colorAccent"
+        android:ems="10"
+        android:gravity="center"
+        android:hint="Alliance's Final Score"
+        android:inputType="number"
+        android:textSize="35sp"
+        android:fontFamily="@font/bitter"
+        app:layout_constraintBottom_toTopOf="@+id/submitButton"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/commentsEditText" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
