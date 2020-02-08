@@ -4,6 +4,7 @@ import androidx.viewpager.widget.PagerAdapter;
 import androidx.viewpager.widget.ViewPager;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 
 import com.google.android.material.tabs.TabItem;
@@ -46,8 +47,8 @@ public class MainActivity extends AppCompatActivity {
 
 
 
-    private TabLayout tabLayout;
-    private ViewPager viewPager;
+    public TabLayout tabLayout;
+    public static ViewPager viewPager;
     private TabItem CoverTab, AutoTab, TeleopTab, EndgameTab;
     public PagerAdapter PageAdapter;
 
@@ -95,7 +96,6 @@ public class MainActivity extends AppCompatActivity {
         viewPager.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(tabLayout));
 
     }
-
 
     public void autoInnerGoalMinusButton(View view) {
         TextView autoScore1TV = findViewById(R.id.autoInnerGoalScoreTextView);

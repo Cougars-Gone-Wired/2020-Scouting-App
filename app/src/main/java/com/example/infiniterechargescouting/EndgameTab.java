@@ -20,6 +20,8 @@ import java.io.PrintWriter;
 
 import androidx.fragment.app.Fragment;
 
+import com.google.android.material.tabs.TabLayout;
+
 
 /**
  * A simple {@link Fragment} subclass.
@@ -52,7 +54,7 @@ public class EndgameTab extends Fragment {
         return view;
     }
 
-    public static void reset() {
+    public void reset() {
         //climbPositionSpinner.setSelection(0);
         commentBox = view.findViewById(R.id.commentsEditText);
         commentBox.setText("");
@@ -69,6 +71,7 @@ public class EndgameTab extends Fragment {
         finalScore.setText("");
         MainActivity.finalScore = "";
     }
+
 
     public void sets(View view) {
         //climbPositionSpinner = view.findViewById(R.id.climbPositionSpinner);
@@ -129,6 +132,7 @@ public class EndgameTab extends Fragment {
         }
     }
 
+
     public void submitDialog() {
         builder = new AlertDialog.Builder(getContext());
         builder.setMessage("Do you want to Submit?")
@@ -165,9 +169,10 @@ public class EndgameTab extends Fragment {
                 e.printStackTrace();
             }
             Toast.makeText(getContext(),"Response Submitted",Toast.LENGTH_SHORT).show();
-            AutoTab.reset();
             TeleopTab.reset();
             reset();
+            MainActivity.viewPager.setCurrentItem(1);
+            AutoTab.reset();
         } else {
             Toast.makeText(getContext(),"Something isn't filled out",Toast.LENGTH_SHORT).show();
         }

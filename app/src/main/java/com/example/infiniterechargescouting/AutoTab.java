@@ -97,6 +97,7 @@ public class AutoTab extends Fragment {
         //If statements for setting text views to 0 initially, otherwise they start blank
 
         teamNumTextView = view.findViewById(R.id.teamNumTextView);
+
         teamNumTextView.setText(MainActivity.teamNum);
         autoInnerScoreTextView = view.findViewById(R.id.autoInnerGoalScoreTextView);
         if (MainActivity.autoInnerGoalNum == 0) {
@@ -125,12 +126,12 @@ public class AutoTab extends Fragment {
         MainActivity.scoutName = "";
         scoutNameEditText = view.findViewById(R.id.scoutNameEditText);
         MainActivity.teamNum = "Team Num";
-        scoutNameEditText.setText(MainActivity.scoutName);
+        scoutNameEditText.setText(null);
         teamNumTextView = view.findViewById(R.id.teamNumTextView);
         teamNumTextView.setText(MainActivity.teamNum);
         MainActivity.matchNum = "0";
         matchNumEditText = view.findViewById(R.id.matchNumEditText);
-        matchNumEditText.setText("");
+        matchNumEditText.setText(null);
         MainActivity.autoInnerGoalText = "0";
         MainActivity.autoInnerGoalNum = 0;
         autoInnerScoreTextView = view.findViewById(R.id.autoInnerGoalScoreTextView);
