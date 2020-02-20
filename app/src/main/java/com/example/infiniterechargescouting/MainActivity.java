@@ -38,11 +38,12 @@ public class MainActivity extends AppCompatActivity {
     public static String climb;
     public static String breakdown;
     public static String isBalanced;
+    public static String parked;
     public static  String finalScore;
     public static String comments = "";
 
     //All data array
-    public static String[] all_data_array = new String[17];
+    public static String[] all_data_array = new String[18];
 
 
 
@@ -211,8 +212,9 @@ public class MainActivity extends AppCompatActivity {
         all_data_array[11] = controlPanelColor;
         all_data_array[12] = climb;
         all_data_array[13] = isBalanced;
-        all_data_array[14] = breakdown;
-        all_data_array[15] = finalScore;
-        all_data_array[16] = comments;
+        all_data_array[14] = parked;
+        all_data_array[15] = breakdown;
+        all_data_array[16] = finalScore;
+        all_data_array[17] = comments;
     }
 }

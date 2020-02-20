@@ -35,6 +35,7 @@ public class EndgameTab extends Fragment {
     private static CheckBox balanceCheckbox;
     private static CheckBox breakdownCheckbox;
     private static CheckBox climbCheckbox;
+    private static CheckBox parkedCheckbox;
     private static EditText finalScore;
     AlertDialog.Builder builder;
 
@@ -65,8 +66,12 @@ public class EndgameTab extends Fragment {
         breakdownCheckbox = view.findViewById(R.id.breakdownCheckbox);
         breakdownCheckbox.setChecked(false);
         MainActivity.breakdown = "0";
+        climbCheckbox = view.findViewById(R.id.climbCheckbox);
         climbCheckbox.setChecked(false);
         MainActivity.climb = "0";
+        parkedCheckbox = view.findViewById(R.id.parkCheckbox);
+        parkedCheckbox.setChecked(false);
+        MainActivity.parked = "0";
         finalScore = view.findViewById(R.id.finalScoreEditText);
         finalScore.setText("");
         MainActivity.finalScore = "";
@@ -99,6 +104,12 @@ public class EndgameTab extends Fragment {
         } else {
             MainActivity.climb = "0";
         }
+        parkedCheckbox = view.findViewById(R.id.parkCheckbox);
+        if (parkedCheckbox.isChecked()) {
+            MainActivity.parked = "1";
+        } else {
+            MainActivity.parked = "0";
+        }
         finalScore = view.findViewById(R.id.finalScoreEditText);
         MainActivity.finalScore = finalScore.getText().toString();
         commentBox = view.findViewById(R.id.commentsEditText);
@@ -119,17 +130,12 @@ public class EndgameTab extends Fragment {
                 MainActivity.all_data_array[j] = "0";
             }
         }
-        int issues = 0;
         for (int i = 0; i < MainActivity.all_data_array.length-1; i++) {
-            if (MainActivity.all_data_array[i].equals("")) {
-                issues++;
+            if (MainActivity.all_data_array[i].equals("") || MainActivity.all_data_array[i].contains(",")) {
+                return false;
             }
         }
-        if (issues > 0) {
-            return false;
-        } else {
-            return true;
-        }
+        return true;
     }
 
 
@@ -174,7 +180,7 @@ public class EndgameTab extends Fragment {
             MainActivity.viewPager.setCurrentItem(1);
             AutoTab.reset();
         } else {
-            Toast.makeText(getContext(),"Something isn't filled out",Toast.LENGTH_SHORT).show();
+            Toast.makeText(getContext(),"Make sure everything is filled out and there are no commas",Toast.LENGTH_SHORT).show();
         }
     }
         });
